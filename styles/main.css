@@ -1,0 +1,232 @@
+/* ==========================================
+   VARIABLES GLOBALES
+   ========================================== */
+:root {
+  --color-cyan: #00ffff;
+  --color-magenta: #ff00ff;
+  --color-white: #ffffff;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-overlay: rgba(255, 255, 255, 0.05);
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+  --font-size-h1: 48px;
+  --font-size-h4: 24px;
+  --font-size-li: 28px;
+  --padding-body: 50px;
+}
+
+/* ==========================================
+   ESTILOS GLOBALES
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-dark-bg) url('/img/fondo2.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--color-cyan);
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: var(--padding-body);
+  min-height: 100vh;
+}
+
+/* ==========================================
+   TIPOGRAFÍA
+   ========================================== */
+h1 {
+  font-size: var(--font-size-h1);
+  text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-magenta);
+  margin-top: 20px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  margin-top: 20px;
+  color: var(--color-white);
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px var(--color-magenta);
+}
+
+/* ==========================================
+   NAVEGACIÓN
+   ========================================== */
+nav h1 {
+  margin-top: 40px;
+  font-size: 36px;
+  text-shadow: 0 0 10px var(--color-magenta), 0 0 20px var(--color-cyan);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+li {
+  font-size: var(--font-size-li);
+  background-color: var(--color-dark-overlay);
+  border: 2px solid var(--color-cyan);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  transition: transform var(--transition-speed), 
+              box-shadow var(--transition-speed),
+              background-color var(--transition-speed);
+}
+
+li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--color-magenta);
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+li:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   ENLACES
+   ========================================== */
+nav ul li a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+nav ul li a:visited {
+  color: #00ffcc;
+}
+
+nav ul li a:hover {
+  color: var(--color-white);
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+nav ul li a:active {
+  color: #ff0066;
+  text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066;
+}
+
+a {
+  color: var(--color-cyan);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-magenta);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--color-cyan), 0 0 30px var(--color-magenta);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-h1: 36px;
+    --font-size-h4: 18px;
+    --font-size-li: 20px;
+    --padding-body: 30px;
+  }
+
+  body {
+    padding: var(--padding-body);
+  }
+
+  nav h1 {
+    font-size: 28px;
+  }
+
+  ul {
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  li {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  li:hover {
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-h1: 28px;
+    --font-size-h4: 16px;
+    --font-size-li: 16px;
+    --padding-body: 15px;
+  }
+
+  h1 {
+    margin-top: 10px;
+  }
+
+  h4 {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  nav h1 {
+    margin-top: 25px;
+    font-size: 22px;
+  }
+
+  li {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  li:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* ==========================================
+   ACCESIBILIDAD
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #000;
+    background-color: #fff;
+  }
+
+  li {
+    background-color: #f0f0f0;
+    border-color: #333;
+  }
+}
