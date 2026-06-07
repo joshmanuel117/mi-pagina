@@ -1,0 +1,23 @@
+# Archivos del Sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Node (si lo usas)
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Archivos temporales
+*.tmp
+*.log
+.env
