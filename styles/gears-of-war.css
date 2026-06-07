@@ -1,0 +1,307 @@
+/* ==========================================
+   VARIABLES - GEARS OF WAR
+   ========================================== */
+:root {
+  --color-red: #ff0000;
+  --color-magenta: #e100ff;
+  --color-white: #ffffff;
+  --color-dark-bg: #f40c0c;
+  --color-dark-overlay: #030000;
+  --color-dark-secondary: #222;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+}
+
+/* ==========================================
+   ESTILOS GLOBALES
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-dark-bg) url('/img/gears-of-war-fondo2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #1a1a1a;
+  color: var(--color-red);
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   TIPOGRAFÍA
+   ========================================== */
+h2 {
+  font-size: 24px;
+  text-shadow: 0 0 10px var(--color-magenta), 0 0 20px var(--color-red);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+p {
+  color: var(--color-white);
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 0 0 5px var(--color-magenta), 0 0 10px var(--color-red);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+/* ==========================================
+   IMÁGENES
+   ========================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* ==========================================
+   ACCORDION
+   ========================================== */
+.accordion {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.accordion-item {
+  background: var(--color-dark-overlay);
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  transition: border-color var(--transition-speed);
+}
+
+.accordion-item:hover {
+  border-color: var(--color-red);
+}
+
+.accordion-header {
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--color-dark-secondary);
+  color: var(--color-white);
+  transition: background var(--transition-speed), 
+              transform var(--transition-speed);
+  user-select: none;
+  font-size: 18px;
+}
+
+.accordion-header:hover {
+  background: rgba(255, 0, 0, 0.1);
+  transform: translateX(5px);
+}
+
+.accordion-header:active {
+  transform: translateX(2px);
+}
+
+.accordion-header::after {
+  content: ' ▼';
+  transition: transform var(--transition-speed);
+  display: inline-block;
+  font-size: 14px;
+}
+
+.active .accordion-header::after {
+  transform: rotate(-180deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px;
+  background: var(--color-dark-overlay);
+  border-top: 1px solid rgba(255, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.active .accordion-content {
+  display: block;
+}
+
+.accordion-content img {
+  margin: 15px auto;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-red);
+}
+
+/* ==========================================
+   ENLACES
+   ========================================== */
+a {
+  color: var(--color-red);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-speed), text-shadow var(--transition-speed);
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: 2px solid var(--color-red);
+  border-radius: var(--border-radius);
+}
+
+a:hover {
+  color: var(--color-white);
+  text-shadow: 0 0 10px var(--color-red), 0 0 20px var(--color-magenta);
+  background: rgba(255, 0, 0, 0.1);
+}
+
+a:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--color-magenta), 0 0 20px var(--color-red);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--color-magenta), 0 0 30px var(--color-red);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  .accordion {
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .accordion-header {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .accordion-content {
+    padding: 12px;
+  }
+
+  .accordion-content img {
+    max-height: 300px;
+    width: auto;
+  }
+
+  a {
+    padding: 8px 15px;
+    font-size: 14px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+
+  .accordion-item {
+    margin-bottom: 8px;
+  }
+
+  .accordion-header {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .accordion-content {
+    padding: 10px;
+  }
+
+  .accordion-content img {
+    max-height: 250px;
+    width: auto;
+  }
+
+  a {
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}
+
+/* ==========================================
+   ACCESIBILIDAD
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .accordion-header::after {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  .accordion-item {
+    background: #fff;
+    border-color: #ccc;
+  }
+
+  .accordion-header {
+    background: #f0f0f0;
+    color: #333;
+  }
+
+  p {
+    color: #333;
+    text-shadow: none;
+  }
+}
