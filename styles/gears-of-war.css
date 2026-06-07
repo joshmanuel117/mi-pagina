@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: var(--color-dark-bg) url('/img/gears-of-war-fondo2.jpg') no-repeat center center fixed;
+  background: var(--color-dark-bg) url('./img/gears-of-war-fondo2.jpg') no-repeat center center fixed;
   background-size: cover;
   background-color: #1a1a1a;
   color: var(--color-red);
